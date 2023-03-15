@@ -1,0 +1,29 @@
+{
+  "name": "genesis-db",
+  "version": "0.1.0",
+  "bin": {
+    "genesis-db": "bin/genesis-db.js"
+  },
+  "scripts": {
+    "build": "echo \"The build step is not required when using JavaScript!\" && exit 0",
+    "cdk": "cdk",
+    "test": "jest",
+    "diff": "CDK_RESOURCE_STAGE=dev cdk diff --profile dev --all",
+    "deploy:dev": "CDK_RESOURCE_STAGE=dev cdk deploy --profile dev --all -c vpcid=vpc-0cf5de636dae97190",
+    "deploy:stag": "CDK_DEPLOY_STAGE=stag cdk deploy --profile staging --all",
+    "deploy:prod": "CDK_RESOURCE_STAGE=prod cdk deploy --profile production --all",
+    "synth": "CDK_RESOURCE_STAGE=dev cdk synth --profile dev --all",
+    "destroy": "CDK_RESOURCE_STAGE=dev CDK_DEPLOY_STAGE=dev cdk destroy --all"
+  },
+  "devDependencies": {
+    "@aws-cdk/assert": "1.127.0",
+    "aws-cdk": "1.127.0",
+    "jest": "^26.4.2"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-ec2": "1.127.0",
+    "@aws-cdk/aws-iam": "1.127.0",
+    "@aws-cdk/aws-rds": "1.127.0",
+    "@aws-cdk/core": "1.127.0"
+  }
+}
